@@ -1,0 +1,19 @@
+{
+  "rag_bm25": {
+    "answerable_accepted": 5,
+    "answerable_total": 6,
+    "unanswerable_abstained": 2,
+    "unanswerable_total": 2,
+    "measured_cost_usd": 0.00427995,
+    "measured_tokens": 25434
+  },
+  "rag_hybrid": {
+    "answerable_accepted": 6,
+    "answerable_total": 6,
+    "unanswerable_abstained": 2,
+    "unanswerable_total": 2,
+    "measured_cost_usd": 0.0034959,
+    "measured_tokens": 23816
+  },
+  "disclosure": "Post-hoc development diagnostic using saved raw responses after validator changes; not a new model run, held-out result, or human correctness score."
+}

@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.*
+!.env.example
+.ipynb_checkpoints/
+*.zip
+results/*_live/*
+!results/*_live/records_compact.json
+!results/*_live/records_posthoc_validator_v3.jsonl
+!results/*_live/summary_posthoc_validator_v3.json
+!results/*_live/preliminary_ai_source_review.csv
+!results/*_live/preliminary_ai_source_review_summary.json
+results/latest_*_live.json

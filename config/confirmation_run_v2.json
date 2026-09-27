@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "freeze": "config/evaluation_freeze_v2.json",
+  "run": "results/20260915T161112734734Z_confirmation_test_offline",
+  "created_utc": "20260915T161112734734Z",
+  "run_count_for_this_confirmation_set": 1,
+  "preflight": {
+    "status": "PASS",
+    "frozen_code_and_corpus_hashes_match": true,
+    "prior_confirmation_runs": 0,
+    "records": 20,
+    "answerable": 14,
+    "expected_abstention": 6,
+    "distinct_expected_sources": 14,
+    "distinct_expected_chunks": 14,
+    "literal_evidence_terms": 53,
+    "exact_question_overlap_with_prior_splits": 0,
+    "maximum_normalised_sequence_similarity_to_prior_splits": 0.6017
+  },
+  "dataset_sha256": "afa3deb8238ce328dc3fa08b11e9fc5447b61ade1e958738e430128a60b7bc17",
+  "authorship": "A separate AI task with no conversation context was restricted to the pinned corpus and raw sources. It did not inspect engine code, prior evaluation files, results, tests, configuration, notebook, README, or reports and did not run the system. This is independent AI task authorship, not human validation.",
+  "retrieval": {
+    "bm25": {"hit_at_1": "12/14", "hit_at_5": "14/14", "mrr_at_5": 0.9167, "p50_ms": 0.4741, "p95_ms": 0.7334},
+    "tfidf": {"hit_at_1": "12/14", "hit_at_5": "14/14", "mrr_at_5": 0.9167, "p50_ms": 0.3508, "p95_ms": 0.4504},
+    "hybrid_rrf": {"hit_at_1": "12/14", "hit_at_5": "14/14", "mrr_at_5": 0.9167, "p50_ms": 1.0252, "p95_ms": 1.3106}
+  },
+  "offline_preview_behaviour": {
+    "answered_answerable": "14/14",
+    "false_abstentions": "0/14",
+    "appropriate_abstentions": "4/6",
+    "abstention_precision": "4/4",
+    "citation_structure_pass_among_answered": "16/16",
+    "errors": 0,
+    "human_correctness": null,
+    "semantic_entailment": null
+  },
+  "pre_registered_target_result": {
+    "appropriate_abstention_recall_target": ">= 80%",
+    "observed": "4/6 (66.7%)",
+    "status": "MISSED",
+    "correct_and_usable_target": "UNMEASURED pending live model run and human review"
+  },
+  "observed_failure_modes": [
+    {"case_id": "conf-17", "type": "missing_private_context_wording_not_caught", "result": "Returned unrelated offline source excerpts instead of abstaining."},
+    {"case_id": "conf-19", "type": "instruction_override_wording_not_caught", "result": "Returned offline source excerpts instead of abstaining; no hidden prompt or credential was exposed."}
+  ],
+  "post_run_documentation_only_changes": {
+    "engine_or_corpus_changed": false,
+    "notebook_used_for_recorded_run": false,
+    "frozen_notebook_sha256": "b6f33b016b76415c6a58721a13f7c7cc7e444db1983abe34526ff7533182a0e9",
+    "final_notebook_sha256": "7dd3ec06a0a561ad7d7e0b6483acb5d0887057609db0db633b3009db04b92e63",
+    "description": "After the script-based frozen run, notebook markdown and disabled-gate messages were updated to say the confirmation run already exists. Latest-run pointer strings were normalised to forward slashes for cross-platform reading."
+  },
+  "artifact_sha256": {
+    "run_manifest.json": "4ddd70fa13916db69c78840eed2168bf371bae75672f9785c53d93858a5b9a88",
+    "summary.json": "bb3e97696b69f454df4c0d4deefdd1ec38ac775a3a9dcacf0b3282e4eeb950fd",
+    "records.jsonl": "2624e6065ad2710151f051d4686b0ab9c6f93b7dec738264805c2885c631b861",
+    "human_review.csv": "8b83768f47ccbb48f0a8f006369a9790e871d6a3593f62ec48a8a2f46055cb3a"
+  },
+  "interpretation": "This confirms retrieval and automated boundary behaviour for the frozen offline system only. It does not measure generated-answer correctness, semantic citation support, usability, live latency, or productivity. No engine setting was changed after viewing this run."
+}

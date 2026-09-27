@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "verified_on": "2026-09-15",
+  "verification_method": "Public OpenRouter endpoint listing retrieved using web browsing; no authenticated inference request",
+  "source_url": "https://openrouter.ai/api/v1/models/openai/gpt-4o-mini/endpoints",
+  "corroborating_source_url": "https://openrouter.ai/openai/gpt-4o-mini",
+  "model": "openai/gpt-4o-mini",
+  "currency": "USD",
+  "base_input_usd_per_million_tokens": 0.15,
+  "base_output_usd_per_million_tokens": 0.60,
+  "context_length": 128000,
+  "max_completion_tokens": 16384,
+  "provider_rates": [
+    {
+      "provider_tag": "openai",
+      "input_usd_per_token": 0.00000015,
+      "output_usd_per_token": 0.0000006,
+      "cached_input_usd_per_token": 0.000000075,
+      "supports_response_format": true,
+      "supports_structured_outputs": true
+    },
+    {
+      "provider_tag": "azure",
+      "input_usd_per_token": 0.00000015,
+      "output_usd_per_token": 0.0000006,
+      "cached_input_usd_per_token": 0.000000075,
+      "supports_response_format": true,
+      "supports_structured_outputs": true
+    },
+    {
+      "provider_tag": "azure/swedencentral",
+      "input_usd_per_token": 0.000000165,
+      "output_usd_per_token": 0.00000066,
+      "cached_input_usd_per_token": 0.0000000825,
+      "supports_response_format": true,
+      "supports_structured_outputs": true
+    }
+  ],
+  "notes": [
+    "Dated catalog snapshot, not a guarantee of future price or successful authenticated inference.",
+    "Base rates apply to the listed openai and azure routes; the regional route had different prices.",
+    "Calculate token-only estimates separately from provider-reported usage.cost.",
+    "Do not assume cache hits, retries, or missing usage values are zero.",
+    "No paid completion request was made during this research."
+  ]
+}

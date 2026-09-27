@@ -1,0 +1,22 @@
+{
+  "created_utc": "20260915T153239998805Z",
+  "split": "development",
+  "live": false,
+  "model": null,
+  "dataset_sha256": "45ea3a4a02f81bfb469acc63301cee8d9f6f8286454febfa9eb9f1174f98eaef",
+  "corpus_sha256": "67f6f22f5877f568a9bf5dc8bb73b125ce62d56eb7fb9c64cbf1f3f8e05a74df",
+  "methods": [
+    "bm25",
+    "tfidf",
+    "hybrid"
+  ],
+  "k": 5,
+  "human_correctness": "NOT MEASURED",
+  "independent_domain_validation": "PENDING",
+  "code_sha256": {
+    "verifyrag\\__init__.py": "3943eb5146bea254224f20470534041038e28ef58a907582d17481392584b964",
+    "verifyrag\\__main__.py": "a8a2b06e8f3633265dca087d3654c6059d452d459525c8c1321f7009fb1ab0d7",
+    "verifyrag\\answering.py": "572c7f417863409f57e1a95b3e389182d59963d6ffd8a3ccbef0ee5fc5785512",
+    "verifyrag\\retrieval.py": "7f8b6ea3c9e49a832715b994c9d0ecbd8dbec8f1dd4ffc7b3c4d19d90e3ed351"
+  }
+}

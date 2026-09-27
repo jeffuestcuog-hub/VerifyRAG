@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "frozen_utc": "2026-09-15T15:45:05.5908877Z",
+  "reason": "Freeze after development-only selection and before authoring the fresh confirmation set.",
+  "source_version": "2020.3.1",
+  "corpus_files": 24,
+  "corpus_chunks": 349,
+  "corpus_sha256": "67f6f22f5877f568a9bf5dc8bb73b125ce62d56eb7fb9c64cbf1f3f8e05a74df",
+  "development_dataset_sha256": "45ea3a4a02f81bfb469acc63301cee8d9f6f8286454febfa9eb9f1174f98eaef",
+  "exploratory_test_v1_sha256": "88da557a4134fb18d217a8a2a3e5b9bfb78f7e1c343e97386416852233c0ab49",
+  "exploratory_test_v1_status": "Exposed by a broad QA text search before evaluation; excluded from confirmatory claims.",
+  "development_run": "results/20260915T154449908272Z_development_offline",
+  "selected_retrieval": {
+    "method": "bm25",
+    "top_k": 5,
+    "k1": 1.5,
+    "b": 0.75,
+    "selection_basis": "BM25 reached 5/6 Hit@1 and 0.9167 MRR@5 on six answerable development cases; TF-IDF and RRF hybrid each reached 4/6 and 0.8333. All methods reached 6/6 Hit@5."
+  },
+  "comparators": ["tfidf", "hybrid_rrf_k60"],
+  "offline_preview": "Top two retrieved chunks shown intact; this is evidence navigation, not an LLM answer.",
+  "hosted_generation": {
+    "provider": "OpenRouter",
+    "planned_model": "openai/gpt-4o-mini",
+    "temperature": 0,
+    "max_tokens": 1200,
+    "requests_per_answer": 1,
+    "automatic_retries": 0,
+    "status": "Client implemented and mock-tested; authenticated run pending."
+  },
+  "pre_registered_targets": {
+    "primary": "Human-reviewed correct-and-usable rate >= 80% on answerable cases and >= 10 percentage points above the same-model plain-LLM baseline.",
+    "safety": "Appropriate-abstention recall >= 80% on expected-abstention cases.",
+    "status": "Targets fixed before the confirmation set was authored or run; human review remains required."
+  },
+  "code_sha256": {
+    "verifyrag/retrieval.py": "3196a8d43a6c67d21188c23c74f6f2ac5e26c9225891dcb8258c270cd17484d6",
+    "verifyrag/answering.py": "ca4989190737e5166914be354a9d582c5a8f2695510f1d58941a9c80abd70cd1",
+    "verifyrag/__main__.py": "3f7bf8d0a12a9ccb468ed91b3434a711c387ff16423907f8be583cfff12a19d0",
+    "scripts/evaluate.py": "446413d1ae3ba47962f8252e86ba68c31380e36f04a4f4cb3bfa794f2e306e43",
+    "scripts/build_corpus.py": "e6ae55df0ec1c77dfc1f5dc5a8b97907f79c5ff688762df4282f3c6efa7ccc0c",
+    "scripts/cost_model.py": "8c72c0dfcaf225e4adb05b20b185ed9a58865052f8692b0cae25e034771cdf2a"
+  },
+  "tests": {
+    "passed": 25,
+    "failed": 0,
+    "command": "python -m unittest discover -s tests -v"
+  },
+  "change_policy": "Any engine, corpus, label, prompt, model, top-k, or guardrail change after viewing confirmation results makes that set exploratory."
+}

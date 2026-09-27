@@ -1,0 +1,14 @@
+{
+  "review_type": "AI-assisted preliminary source comparison; not human or independent domain validation",
+  "answerable_cases": 6,
+  "plain_llm": {
+    "correct_and_usable": 2,
+    "rate": 0.3333333333333333
+  },
+  "rag_hybrid_posthoc_validator_v3": {
+    "correct_and_usable": 5,
+    "rate": 0.8333333333333334,
+    "difference_from_plain_percentage_points": 50.0
+  },
+  "warning": "Development data and a post-hoc validator were used. This is evidence for iteration only and does not satisfy the pre-registered human-reviewed confirmation target."
+}

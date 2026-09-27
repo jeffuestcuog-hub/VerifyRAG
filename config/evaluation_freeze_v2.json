@@ -1,0 +1,69 @@
+{
+  "schema_version": 2,
+  "frozen_utc": "2026-09-15T15:57:49.4032464Z",
+  "reason": "Final post-diagnostic freeze before a fresh confirmation set is authored or run.",
+  "source_version": "2020.3.1",
+  "corpus_files": 24,
+  "corpus_chunks": 349,
+  "corpus_sha256": "67f6f22f5877f568a9bf5dc8bb73b125ce62d56eb7fb9c64cbf1f3f8e05a74df",
+  "development_dataset_sha256": "45ea3a4a02f81bfb469acc63301cee8d9f6f8286454febfa9eb9f1174f98eaef",
+  "exploratory_test_v1_sha256": "88da557a4134fb18d217a8a2a3e5b9bfb78f7e1c343e97386416852233c0ab49",
+  "history": {
+    "v1_freeze": "config/evaluation_freeze_v1.json",
+    "first_exploratory_run": "results/20260915T155216906338Z_exploratory_test_v1_offline",
+    "changes_prompted_by_exploratory_diagnostics": [
+      "Expanded explicit UVM scope vocabulary for lifecycle phases and registry overrides.",
+      "Broadened missing-private-context detection.",
+      "Added a qualified class-method existence guard and then corrected it to recognise declarations inside the class source file."
+    ],
+    "status": "The exploratory set was viewed and used for changes, so neither its first run nor its regression run is confirmatory evidence."
+  },
+  "final_development_run": "results/20260915T155713603243Z_development_offline",
+  "exploratory_regression_run": "results/20260915T155713539012Z_exploratory_test_v1_offline",
+  "selected_retrieval": {
+    "method": "bm25",
+    "top_k": 5,
+    "k1": 1.5,
+    "b": 0.75,
+    "selection_basis": "BM25 reached 5/6 Hit@1 and 0.9167 MRR@5 on six answerable development cases; TF-IDF and RRF hybrid each reached 4/6 and 0.8333. All methods reached 6/6 Hit@5."
+  },
+  "comparators": [
+    "tfidf",
+    "hybrid_rrf_k60"
+  ],
+  "offline_preview": "Top two retrieved chunks shown intact; this is evidence navigation, not an LLM answer.",
+  "hosted_generation": {
+    "provider": "OpenRouter",
+    "planned_model": "openai/gpt-4o-mini",
+    "temperature": 0,
+    "max_tokens": 1200,
+    "requests_per_answer": 1,
+    "automatic_retries": 0,
+    "status": "Client implemented and mock-tested; authenticated run pending."
+  },
+  "pre_registered_targets": {
+    "primary": "Human-reviewed correct-and-usable rate >= 80% on answerable cases and >= 10 percentage points above the same-model plain-LLM baseline.",
+    "safety": "Appropriate-abstention recall >= 80% on expected-abstention cases.",
+    "status": "Targets were recorded in v1 before the exploratory run and remain unchanged; human review is required."
+  },
+  "confirmation_test": {
+    "file": "data/eval/confirmation_test.jsonl",
+    "status": "NOT CREATED OR RUN",
+    "required_next_step": "Have a fresh author create and source-check questions without seeing system outputs, then run once against this frozen configuration."
+  },
+  "code_sha256": {
+    "verifyrag/retrieval.py": "3196a8d43a6c67d21188c23c74f6f2ac5e26c9225891dcb8258c270cd17484d6",
+    "verifyrag/answering.py": "94a25eb7e998bd3acd0ae0c6d41a0e7c3b16ff1125fe7cbc0e96949fc4e0f5e3",
+    "verifyrag/__main__.py": "3f7bf8d0a12a9ccb468ed91b3434a711c387ff16423907f8be583cfff12a19d0",
+    "scripts/evaluate.py": "446413d1ae3ba47962f8252e86ba68c31380e36f04a4f4cb3bfa794f2e306e43",
+    "scripts/build_corpus.py": "e6ae55df0ec1c77dfc1f5dc5a8b97907f79c5ff688762df4282f3c6efa7ccc0c",
+    "scripts/cost_model.py": "8c72c0dfcaf225e4adb05b20b185ed9a58865052f8692b0cae25e034771cdf2a"
+  },
+  "notebook_sha256": "b6f33b016b76415c6a58721a13f7c7cc7e444db1983abe34526ff7533182a0e9",
+  "tests": {
+    "passed": 27,
+    "failed": 0,
+    "command": "python -m unittest discover -s tests -v"
+  },
+  "change_policy": "Any engine, corpus, label, prompt, model, top-k, or guardrail change after this freeze requires a new freeze. Any confirmation set whose outcomes drive a change becomes exploratory."
+}

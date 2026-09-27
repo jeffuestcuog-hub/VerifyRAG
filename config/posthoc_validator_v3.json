@@ -1,0 +1,20 @@
+{
+  "created_date": "2026-09-25",
+  "purpose": "Revalidate saved paid development responses after a validator fix; no provider calls.",
+  "evidence_status": "Post-hoc development diagnostic, not held-out confirmation or human correctness.",
+  "input_records": "results/20260925T142018102794Z_development_live/records_compact.json",
+  "input_records_sha256": "8d229d880c997cb0ebd91549029e7d5d466655bea70e09f42d73056c26a7f108",
+  "corpus_sha256": "e0c7879befa7f4cc73aa6d79020a1f190635325c542b919937d05829f0fa0c8f",
+  "code_sha256": {
+    "verifyrag/answering.py": "aec1cf224f9286eaea86e034d57f6416dc54bda461f36c97267f78407242fa89",
+    "verifyrag/retrieval.py": "3196a8d43a6c67d21188c23c74f6f2ac5e26c9225891dcb8258c270cd17484d6",
+    "scripts/build_corpus.py": "e756783ea75e5e92accb0e2ba939874bbc60ec83db3a1602f979a68739e9f6f4",
+    "scripts/revalidate_saved_live.py": "a5260b6dcad67b8ae75170d806f04221e606f30e8b98c409c62e5adbf521be64"
+  },
+  "results": {
+    "rag_bm25_answerable_accepted": "5/6",
+    "rag_hybrid_answerable_accepted": "6/6",
+    "rag_bm25_unanswerable_abstained": "2/2",
+    "rag_hybrid_unanswerable_abstained": "2/2"
+  }
+}

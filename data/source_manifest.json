@@ -1,0 +1,205 @@
+{
+  "repository": "https://github.com/accellera-official/uvm-core",
+  "version": "2020.3.1",
+  "commit": "78c06547a2a0a29b3dc9dcafae62b75b2ff61544",
+  "license": "Apache-2.0",
+  "archive_sha256": "5bd59c4d6dafe78b8d445f0fb4f80f4c22ee30d2634c11fabab804f3a7097200",
+  "files": [
+    {
+      "path": "src/base/uvm_object.svh",
+      "bytes": 41336,
+      "sha256": "a0fc6b047d91bdeed3e0db645447ef017e2bce7dde0166e7a83e8e8675ab9d7b",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/base/uvm_object.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/base/uvm_component.svh",
+      "bytes": 122681,
+      "sha256": "21353c66f2fe921caca5e0ee1dceca05ec98227e018f9f93bcce259755f2f845",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/base/uvm_component.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/base/uvm_factory.svh",
+      "bytes": 83118,
+      "sha256": "a484b17b41a7801e6f73012d324e7c31e96674464388facd81e08ad0d5376440",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/base/uvm_factory.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/base/uvm_registry.svh",
+      "bytes": 29493,
+      "sha256": "26b4f8b81315f0686814b5608c2c18e8350c43cf16f5237af3c0eaaf48d2d616",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/base/uvm_registry.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/base/uvm_config_db.svh",
+      "bytes": 10876,
+      "sha256": "a64a1cc235c2df6eb76d71ed4b7fcf5d3061ce5059a6eeff027fa05a543b26a7",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/base/uvm_config_db.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/base/uvm_resource_db.svh",
+      "bytes": 8948,
+      "sha256": "934c78e446b3c56435f01e917f16e902b778e3e6c383e136a6be1ddebd1765ef",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/base/uvm_resource_db.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/base/uvm_phase.svh",
+      "bytes": 66927,
+      "sha256": "2841aa8640e8a0eb9954b00c3a2cf2fc67a47954cc410a3a41416f6f25018161",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/base/uvm_phase.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/base/uvm_common_phases.svh",
+      "bytes": 10741,
+      "sha256": "14db3bba21f937bcf76e87546e2ceed41ccf30591d10f695a5475c1254cbea8e",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/base/uvm_common_phases.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/base/uvm_objection.svh",
+      "bytes": 44414,
+      "sha256": "fa778342829dc42cef646729a87a915fc7da576151314dd7ce4bd2022f86bcb2",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/base/uvm_objection.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/base/uvm_report_object.svh",
+      "bytes": 23440,
+      "sha256": "7208203c8b73aa585c7bec09666e8c4510b4f9071f4ac7ca0a6ff6fe7eee6682",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/base/uvm_report_object.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/base/uvm_root.svh",
+      "bytes": 40762,
+      "sha256": "02d925de62319e006a35e84b3c17ac5e3bbd54f45cf880875d6d7245060dc7af",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/base/uvm_root.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/base/uvm_event.svh",
+      "bytes": 14230,
+      "sha256": "15783fead1c9bdc8f12a88f11bfc5588f51c693a74fcd97b52901eb5546a3757",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/base/uvm_event.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/seq/uvm_sequence_base.svh",
+      "bytes": 45532,
+      "sha256": "1a86aac3f6f334c3bc2be7169bb7f58464b74209405a6e39710c40d7bb9723a2",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/seq/uvm_sequence_base.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/seq/uvm_sequence_item.svh",
+      "bytes": 18185,
+      "sha256": "ed5a399f8f00cfb2b32ac0e2b63f0f0b46617e4876a0e7f500a38f666468ec72",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/seq/uvm_sequence_item.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/seq/uvm_sequencer.svh",
+      "bytes": 11438,
+      "sha256": "c09d7225beeb5b3ec07bfdd1fe13a14519a62d4a926c8ac2681dd3d3c6517559",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/seq/uvm_sequencer.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/seq/uvm_sequencer_base.svh",
+      "bytes": 47855,
+      "sha256": "379275e464d54606246b3740447f6599a33f75f7a4a1622eed0e178e6d2c7939",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/seq/uvm_sequencer_base.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/comps/uvm_driver.svh",
+      "bytes": 3848,
+      "sha256": "e5e110861a08a63c1826479e3889ba903858e8ff6862061e88aedcdf70740809",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/comps/uvm_driver.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/comps/uvm_monitor.svh",
+      "bytes": 2200,
+      "sha256": "f095f2e082eeb8978bb96e1e796c36e167528956c6c925c266c13ed3e8691864",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/comps/uvm_monitor.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/comps/uvm_agent.svh",
+      "bytes": 4363,
+      "sha256": "cf35eb822a8e7c2451942a6fcd0cb224a7ea67aac0588f33e09e4ae72c0bd1af",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/comps/uvm_agent.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/comps/uvm_scoreboard.svh",
+      "bytes": 2243,
+      "sha256": "2e806558b4654e0a1d4f31b66decf5427b0ccc662981a684117698823bf3a5af",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/comps/uvm_scoreboard.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/tlm1/uvm_analysis_port.svh",
+      "bytes": 5667,
+      "sha256": "2d25db883aec8b809408056fa89c1c3eaf23458bfb38ff347279a8c8194fde3e",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/tlm1/uvm_analysis_port.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/tlm1/uvm_tlm_fifos.svh",
+      "bytes": 8162,
+      "sha256": "c66593eb42bdd64bde7d2c86a270ba241f053a69e44d977af0865cf1ff91f2b9",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/tlm1/uvm_tlm_fifos.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/macros/uvm_object_defines.svh",
+      "bytes": 107200,
+      "sha256": "48dd7b7d40c493dc25968eae89601d6a5a2cf1214b7d95ddcf2e4090c9c9561a",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/macros/uvm_object_defines.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "src/reg/uvm_reg.svh",
+      "bytes": 80060,
+      "sha256": "b639213a68cf2022091454c2bd0f00bdfe7fcb8a50c817b5f9bf1478953abc3b",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/src/reg/uvm_reg.svh",
+      "in_corpus": true
+    },
+    {
+      "path": "LICENSE.txt",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/LICENSE.txt",
+      "in_corpus": false
+    },
+    {
+      "path": "NOTICE.txt",
+      "bytes": 6544,
+      "sha256": "b89f85d3f14ae457890c932bd543124e6521f74b3b01ab208932ef72488748c2",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/NOTICE.txt",
+      "in_corpus": false
+    },
+    {
+      "path": "README.md",
+      "bytes": 23427,
+      "sha256": "751356072ac5a7aceee97ac958cf95a76a56f353ad1fecc63db8fd614c2b33cb",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/README.md",
+      "in_corpus": false
+    },
+    {
+      "path": "DEVIATIONS.md",
+      "bytes": 1750,
+      "sha256": "d270b1b4cd2d8da21790f23687a51c1ac0b5d4bc3031def9be573bdaf0ae0dc7",
+      "url": "https://github.com/accellera-official/uvm-core/blob/78c06547a2a0a29b3dc9dcafae62b75b2ff61544/DEVIATIONS.md",
+      "in_corpus": false
+    }
+  ]
+}

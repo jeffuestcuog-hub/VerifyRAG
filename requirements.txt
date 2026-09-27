@@ -1,0 +1,2 @@
+# Core retrieval, CLI, evaluation and HTTP client require only Python 3.10+ stdlib.
+# Jupyter/Colab is optional for the notebook. No install step is needed in Colab.

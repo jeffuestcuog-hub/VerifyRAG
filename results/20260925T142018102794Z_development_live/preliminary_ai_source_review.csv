@@ -1,0 +1,13 @@
+case_id,method,answerable,source_consistent_0_1,usable_0_1,correct_and_usable_0_1,review_type,notes
+dev-01,plain_llm,TRUE,1,1,1,AI-assisted preliminary source comparison,"Correctly recommends do_copy, super.do_copy and casting."
+dev-02,plain_llm,TRUE,0,0,0,AI-assisted preliminary source comparison,"Incorrectly treats UVM_CONFIG_DB_TRACE as an environment variable; the source documents the +UVM_CONFIG_DB_TRACE command-line option and uvm_config_db_options::turn_on_tracing()."
+dev-03,plain_llm,TRUE,1,1,1,AI-assisted preliminary source comparison,"Core active/passive distinction matches the reference; the optional analysis-component statement is not supported by the selected passage."
+dev-04,plain_llm,TRUE,0,0,0,AI-assisted preliminary source comparison,"Does not state the documented wait_trigger() then get_trigger_data() sequence and names a trigger_data method not shown by the source."
+dev-05,plain_llm,TRUE,0,0,0,AI-assisted preliminary source comparison,"Incorrectly permits simulation delay between start_item and finish_item."
+dev-06,plain_llm,TRUE,0,0,0,AI-assisted preliminary source comparison,"Incorrectly says dump filters resources by T."
+dev-01,rag_hybrid_posthoc_v3,TRUE,1,1,1,AI-assisted preliminary source comparison,"Three retained claims match the cited source; one ellipsis-based claim was removed."
+dev-02,rag_hybrid_posthoc_v3,TRUE,1,0,0,AI-assisted preliminary source comparison,"The validator removed the wrong uvm_config_db::turn_on_tracing class qualification; the remaining statement that tracing is off by default is correct but does not answer how to enable it."
+dev-03,rag_hybrid_posthoc_v3,TRUE,1,1,1,AI-assisted preliminary source comparison,"Retained active/passive and is_active claims match the cited source."
+dev-04,rag_hybrid_posthoc_v3,TRUE,1,1,1,AI-assisted preliminary source comparison,"Correctly summarizes waiting for the trigger and then obtaining trigger data."
+dev-05,rag_hybrid_posthoc_v3,TRUE,1,1,1,AI-assisted preliminary source comparison,"Correctly rejects delays and permits randomization between the two calls."
+dev-06,rag_hybrid_posthoc_v3,TRUE,1,1,1,AI-assisted preliminary source comparison,"Correctly states that dump is not limited by T."
