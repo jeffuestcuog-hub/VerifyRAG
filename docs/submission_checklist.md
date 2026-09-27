@@ -21,19 +21,18 @@ have already been uploaded to NTULearn.
 | 27 September paid smoke test | Preserved as a failure | False abstention; 3,543 tokens; USD 0.00035025 |
 | 27 September 24-call comparison | Completed in Colab but result folder not retained | No new score or total cost claimed |
 | Credential handling | Complete for public package | API key kept in Colab Secrets; package scanned |
-| GitHub-ready repository | Prepared locally; publish pending | 122 files staged in a clean local repository |
+| GitHub repository | Published and publicly accessible | https://github.com/jeffuestcuog-hub/VerifyRAG |
 | Recorded working demo | Script complete; recording pending | `demo_script.md` |
-| Repository and video links | Pending | Add final accessible URLs before NTULearn upload |
+| Repository and video links | Repository complete; video pending | Add the accessible video URL before NTULearn upload |
 | NTULearn submission | Pending | Read current View instructions, upload, reopen files, save receipt |
 
 ## Final checks before submission
 
 1. Read the current NTULearn **View instructions** page and follow its exact file/link format.
-2. Publish the reviewed repository without any secret.
-3. Record the demonstration using the saved evidence; do not rerun the paid cells for the video.
-4. Test the repository and video links in a private/incognito window.
-5. Read the final report personally and confirm that every first-person statement is accurate.
-6. Upload before 4 October 2026, 11:59 PM (UTC+8), reopen each submitted item, and save the receipt.
+2. Record the demonstration using the saved evidence; do not rerun the paid cells for the video.
+3. Test the video link in a private/incognito window.
+4. Read the final report personally and confirm that every first-person statement is accurate.
+5. Upload before 4 October 2026, 11:59 PM (UTC+8), reopen each submitted item, and save the receipt.
 
 ## Evidence limits
 
