@@ -7,11 +7,11 @@ PE6201 individual End-of-Course Project (44%). Project owner: Gao Zihan.
 ## Status
 
 Working local retrieval/evidence prototype with an OpenRouter grounded-generation client.
-A Colab CPU reproduction and a 25-call paid development experiment were completed on 25 September
-2026. The current code passes 31 tests. A disclosed post-hoc development review reached 5/6
-correct-and-usable hybrid answers, but it is AI-assisted and does **not** establish the frozen
-human-reviewed target or productivity savings. Owner/peer review, final narration and submission
-remain to be completed.
+A fresh public-Colab check completed on 28 September 2026. The current code passes 31 tests. The
+fresh run made 25 paid calls without an API error, and hybrid RAG answered 5/6 supported development
+questions while refusing 2/2 unsupported questions. A stricter AI-assisted review found 4/6 hybrid
+answers complete, so the run does **not** establish the 80% answer-quality target. Independent
+domain review, final recording and submission remain to be completed.
 See [Chinese starting guide](docs/START_HERE_zh.md) and [evidence status](docs/submission_checklist.md).
 
 ## Run in one minute
@@ -101,6 +101,14 @@ unsupported cases. A disclosed AI-assisted source comparison rated hybrid 5/6 (8
 plain LLM 2/6 (33.3%) correct-and-usable. This is post-hoc development evidence; human/domain
 confirmation remains pending.
 
+The fresh 28 September rerun is documented in
+[`docs/colab_validation_20260928.md`](docs/colab_validation_20260928.md). Its smoke test used 3,539
+tokens and cost USD 0.00059745. The 24-call development comparison used 51,153 tokens and cost
+USD 0.00848985. Combined, the run used 54,692 tokens and cost USD 0.00908730. Hybrid's automated
+status was 5/6 supported answers and 2/2 unsupported refusals, but the AI-assisted completeness
+check accepted 4/6. The difference is retained as evidence that citation validation does not
+guarantee a complete answer.
+
 Every run saves input/code hashes, timestamped per-case retrieved chunk IDs, latencies, generated/preview
 outputs, usage if returned by the provider, and a blank `human_review.csv`. Hit@5 measures whether
 at least one annotated relevant passage was retrieved. It does not measure factual correctness,
@@ -128,6 +136,7 @@ simulator execution are outside scope.
 | `tests/` | Source integrity and guardrail contract tests |
 | `docs/tradeoff_report.md` | English report draft; max 1,200 words |
 | `docs/colab_validation_20260925.md` | Colab run, paid usage, post-hoc validation and evidence boundaries |
+| `docs/colab_validation_20260928.md` | Fresh public-Colab rerun, paid usage and completeness limits |
 | `docs/demo_script.md` | Narration and live demonstration outline |
 | `docs/AI_USE.md` | Authorship and assistance disclosure |
 

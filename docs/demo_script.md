@@ -1,131 +1,55 @@
-# VerifyRAG video script
+# VerifyRAG video narration
 
-This is a rehearsal script for a five-to-six-minute recording. Speak naturally and change any
-wording that you would not normally use. Keep the Colab Secrets panel closed. The demonstration
-uses saved outputs, so it does not need another paid API call.
+Target length: about 5 minutes 40 seconds. Speak at a normal pace and pause when a result appears.
 
-## Before recording
+## 0:00–0:30 | Introduction
 
-- Open `README.md`, `VerifyRAG_Colab.ipynb`, and the saved results folder.
-- Collapse long installation and code cells in Colab.
-- Keep the cells showing the 31 tests, offline metrics, saved paid comparison, and smoke-test
-  refusal visible.
-- Check that no API key or personal browser tab is on screen.
-- Practise once with a timer. Aim for five to six minutes.
+Hello, my name is Zihan Gao, and this is VerifyRAG, my PE6201 course project. I built it for verification engineers who need to check UVM APIs while developing a testbench. A general chatbot may use the wrong release or answer without enough evidence. VerifyRAG therefore uses one pinned source version, shows its citations, and refuses questions outside the available evidence.
 
-## 0:00-0:35 | Problem and intended user
+## 0:30–1:00 | Architecture and design change
 
-**Show:** the project title and the first section of `README.md`.
+The corpus contains 24 files from Accellera UVM 2020.3.1, divided into 349 deterministic chunks. Each chunk keeps its commit, checksum, file name and line range. I originally planned to use embeddings and a vector database. I changed to BM25 and TF-IDF because exact UVM names work well with lexical retrieval, and the result is cheaper and easier to inspect.
 
-**Say:**
+## 1:00–1:35 | Fresh public Colab run
 
-“My project is VerifyRAG. I built it for a verification engineer who needs to check UVM API
-behaviour while writing or debugging a testbench. General chatbots can give a fluent answer from
-the wrong UVM version, so my system only returns a generated answer when it can connect each claim
-to the selected source code. Otherwise, it refuses or shows local evidence for inspection.”
+I reran the public notebook in Colab on 28 September. All 31 tests passed. They check source integrity, provenance, version boundaries, citation alignment and refusal rules. The run also confirmed 349 chunks from 24 source files. These tests show that the programmed checks work. They do not prove that every generated answer is correct.
 
-## 0:35-1:15 | What I built and why
+## 1:35–2:20 | Offline evidence and refusals
 
-**Show:** the architecture section of `README.md`, then `data/source_manifest.json`.
+This first example uses the offline path, so it makes no model request. The question asks about configuration database tracing. The result shows an exact source excerpt, says that tracing is off by default, and gives the source file and line range. This is an evidence preview rather than a generated answer. The next case asks for an exact fault in a private scoreboard without providing code or logs, so the system abstains. It also refuses a request to reveal hidden instructions or an API key.
 
-**Say:**
+## 2:20–2:55 | Retrieval results
 
-“The corpus contains 24 files from the Accellera UVM 2020.3.1 source tree. It is pinned to one
-commit, and I record file checksums and source-line links. My proposal originally mentioned
-embeddings and a vector database. After building the corpus, I changed to BM25 and TF-IDF because
-this small technical corpus contains exact identifiers such as `uvm_config_db`. The lexical methods
-are cheaper and easier to inspect. I use OpenRouter and GPT-4o-mini only for optional answer
-generation.”
+On six answerable development questions, BM25 ranked a labelled passage first in five cases and within the top five in all six. TF-IDF and the hybrid ranker placed it first in four cases and within the top five in all six. BM25 reached an MRR at five of 0.9167, while the other two reached 0.8333. These are retrieval measurements on a small development set. They are not answer-accuracy scores.
 
-## 1:15-2:05 | Reproducible local evidence
+## 2:55–3:35 | Fresh paid smoke test
 
-**Show:** the notebook output that ends with `Ran 31 tests` and `OK`, followed by the development
-retrieval table.
+For this requested rerun, I temporarily enabled both paid switches and loaded the OpenRouter key from Colab Secrets. The key was never printed or stored in a code cell. The smoke test made one request with GPT-4o mini. It used 3,539 tokens and cost 0.00059745 US dollars. The validator accepted the answer and its citation, but the answer only said that tracing is off by default. It did not explain how to enable tracing. This is a useful failure case: a valid citation does not guarantee that a two-part question was answered completely.
 
-**Say:**
+## 3:35–4:20 | Fresh paid comparison
 
-“I reran the notebook in Colab on 27 September. All 31 tests passed. On the six answerable
-development questions, BM25 found a labelled passage first in five cases and within the top five in
-all six cases. TF-IDF and the hybrid method also found a labelled passage within the top five in all
-six. These are retrieval results. They do not prove that a generated answer is correct.”
+The development comparison made 24 additional calls. It used 51,153 tokens, cost 0.00848985 dollars, and completed without an API error. Hybrid RAG answered five of the six supported cases and refused both unsupported cases. BM25 RAG answered four of six and also refused both unsupported cases. The plain model returned an answered status for all eight cases and produced no system-level abstention.
 
-## 2:05-2:55 | Supported and unsupported questions
+The automatic five-out-of-six result is coverage, not correctness. In an AI-assisted comparison against the prepared reference answers, I judged four of the six hybrid answers complete. One supported event question was refused, and one two-part sequence question omitted the rule that delays are not allowed between start_item and finish_item. This was not independent human review.
 
-**Show:** one saved local answer for `How do I use uvm_config_db get and set?`, including its source
-path and quote. Then show the unsupported API and wrong-version cases.
+Including the smoke test, the fresh run made 25 paid calls, used 54,692 tokens, and cost 0.00908730 US dollars. I reset both paid switches to false after the run.
 
-**Say:**
+## 4:20–4:50 | Target and frozen confirmation result
 
-“For this supported question, the local mode retrieves the original source text and shows where it
-came from. This is an evidence preview rather than an LLM answer. For a nonexistent API or a request
-for another UVM version, the system refuses. The version and scope checks are implemented in code;
-they are not only a warning in the interface.”
+My target was at least 80 percent correct-and-usable answers and 80 percent appropriate abstention. In the frozen 20-case confirmation run, BM25 found a labelled passage within five results for all 14 answerable questions. However, the original boundary logic refused only four of six unsupported questions, or 66.7 percent, so it missed the safety target. Later fixes passed all six exposed cases, but that is regression evidence because those questions were no longer blind.
 
-## 2:55-3:45 | Validation and an honest failure
+## 4:50–5:25 | Limits
 
-**Show:** the saved 25 September paid comparison, then the 27 September smoke-test output.
+The main risk is a fluent answer attached to real but incomplete evidence. Exact quotations and citation checks reduce this risk, but an engineer still has to judge whether the evidence supports the whole answer. The prototype cannot inspect a private DUT, run a simulator, cover every UVM release or approve sign-off. Private RTL and logs remain outside the hosted-model scope.
 
-**Say:**
+## 5:25–5:50 | Conclusion and disclosure
 
-“In hosted mode, the model must return structured claims. Each claim needs a retrieved chunk and a
-quote that can be aligned to one exact source span. UVM identifiers must appear in that source, and
-a class-qualified method must match the class scope.
+In summary, VerifyRAG is an evidence navigator for one pinned UVM release. The public repository includes the code, corpus, tests, unsuccessful cases and evaluation records. I used generative AI during research, coding, test design and editing. I have kept the failed and incomplete results, and I have separated automated checks from human-validated accuracy. Thank you.
 
-The saved 25 September development batch used 25 calls, 54,426 tokens and cost about 0.0092 US
-dollars. After a bounded alignment fix, the validator accepted six out of six hybrid drafts for the
-answerable development questions and refused both unsupported questions. An AI-assisted source
-review rated five of the six hybrid answers correct and usable, compared with two of six for the
-plain model. This is development evidence, not independent human accuracy.
+## Five lines to practise
 
-The later smoke test is a useful failure. It used 3,543 tokens and cost 0.00035025 dollars, but the
-validator rejected the draft and the system abstained on a supported question. This shows that a
-strict guardrail can also remove a useful answer.”
-
-## 3:45-4:35 | Target, limits, and risk
-
-**Show:** the frozen confirmation summary and the limitations section of the report.
-
-**Say:**
-
-“My target was at least 80 percent correct-and-usable answers and 80 percent appropriate
-abstention. The frozen 20-case confirmation run retrieved a labelled passage within five results for
-all 14 answerable questions, but the original boundary logic refused only four of the six unsupported
-questions. Later changes passed all six exposed refusal cases, but I treat that as regression
-evidence because those cases are no longer blind.
-
-The main remaining risk is a fluent interpretation attached to real but insufficient evidence.
-Exact quotes and source checks reduce that risk, but a verification engineer still needs to judge
-the meaning. The prototype cannot inspect a private DUT, run a simulator, or approve sign-off.”
-
-## 4:35-5:20 | Cost, deployment, and conclusion
-
-**Show:** the repository file list and the three reproduction commands in the report or `README.md`.
-
-**Say:**
-
-“Offline retrieval has no token charge and keeps the question local. Hosted generation sends the
-question and public source excerpts to a provider, so private RTL and logs are outside this
-prototype’s scope. Before a real pilot, I would use a larger frozen benchmark and blinded review by
-verification engineers.
-
-In summary, VerifyRAG is a small evidence navigator for one pinned UVM release. Its strongest result
-is reproducibility: the corpus, tests, saved failures and evaluation files are included in the
-repository. Its main limitation is that citation checks do not replace engineering judgement.”
-
-## 5:20-5:35 | Disclosure
-
-**Show:** `docs/AI_USE.md`.
-
-**Say:**
-
-“I used generative AI during research, coding, test design and editing. I checked the final Colab run,
-kept the failed cases, and documented the assistance in the repository. I have not presented the
-AI-assisted labels as independent human review.”
-
-## Final recording check
-
-- The first ten seconds include your name, course, and project title.
-- The recording shows the working notebook, source evidence, one refusal, metrics, and one failure.
-- Every number spoken matches the final report.
-- No secret, email inbox, or unrelated browser tab is visible.
-- The uploaded video opens in a private/incognito window without requesting access.
+1. Hit at five is a retrieval metric, not answer accuracy.
+2. The fresh paid run made twenty-five calls and cost 0.00908730 US dollars.
+3. Hybrid answered five out of six supported cases, but this is an automated status result.
+4. My AI-assisted completeness check accepted four out of six hybrid answers; it was not independent human review.
+5. The frozen confirmation run achieved four out of six appropriate abstentions, below the 80 percent target.

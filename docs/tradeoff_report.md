@@ -1,38 +1,38 @@
 # VerifyRAG: Business and Technical Trade-off Analysis
 
-**Current position.** I built VerifyRAG as a small evidence finder for UVM questions. On 27 September 2026, all 31 tests passed and each retriever found a labelled passage within five results for all six answerable development questions. A paid smoke question ended in a false abstention after the validator rejected the model draft. The prototype is an evidence navigator, not a replacement for engineering judgement.
+**Current position.** I built VerifyRAG as a small evidence navigator for UVM questions. In a fresh Colab run on 28 September 2026, all 31 tests passed and the hybrid system answered five of six supported development questions while refusing both unsupported questions. A stricter AI-assisted review found only four of the six hybrid answers complete. The project therefore shows useful retrieval and refusal behaviour, but it does not establish the 80% answer-quality target.
 
 ## 1. Problem and significance (15%)
 
-The intended user is a verification engineer checking how a UVM API behaves while writing or debugging a testbench. A plausible but wrong answer can waste time or weaken a check. VerifyRAG returns a short answer only when it can connect each claim to the selected UVM release; otherwise, it refuses or shows source text for inspection.
+The intended user is a verification engineer checking how a UVM API behaves while writing or debugging a testbench. A plausible answer from the wrong release can waste time or weaken a check. VerifyRAG uses one pinned UVM release and links its output to source lines. If the available evidence is outside scope or insufficient, it refuses or shows the source text for inspection.
 
-I did not run interviews or a timed user study, so I make no claim about time saved, adoption, willingness to pay or return on investment. A later study could give engineers matched tasks using ordinary search and VerifyRAG, then record correctness, completion time and source-checking time.
+I did not conduct interviews or a timed user study, so I make no claim about adoption, time saved, willingness to pay or return on investment. A later study could give engineers matched tasks using ordinary search and VerifyRAG, then compare correctness, completion time and source-checking time.
 
-Accellera and Verification Academy already provide searchable UVM documentation [1, 3]. Synopsys describes a retrieval-based verification copilot, while Siemens and Cadence offer wider AI-assisted verification tools [4, 5, 6]. My contribution is narrower: an inspectable prototype with fixed public sources, repeatable tests and visible failures. It does not cover private designs, all SystemVerilog or simulator-specific behaviour.
+Accellera and Verification Academy already provide searchable UVM documentation [1, 3]. Synopsys describes a retrieval-based verification copilot, while Siemens and Cadence offer broader AI-assisted verification tools [4, 5, 6]. My contribution is narrower: a reproducible prototype with fixed public sources, inspectable citations, repeatable tests and retained failures. It does not cover private designs, all SystemVerilog or simulator-specific behaviour.
 
 ## 2. Business and technical trade-offs (25%)
 
-My proposal assumed embeddings and a vector database. After building the corpus, I chose in-memory BM25 and sparse TF-IDF. The 349 chunks often contain exact API names such as `uvm_config_db`, so lexical retrieval is cheap, inspectable and fast enough. The hybrid ranker combines both methods with reciprocal-rank fusion. This avoids embedding charges and external corpus transfer, although it may miss heavy paraphrasing.
+My proposal assumed embeddings and a vector database. After building the corpus, I chose in-memory BM25 and sparse TF-IDF. The 349 chunks contain exact identifiers such as `uvm_config_db`, so lexical retrieval is cheap, transparent and fast enough. The hybrid ranker combines BM25 and TF-IDF with reciprocal-rank fusion. This avoids embedding charges and external corpus transfer, although it can miss strongly paraphrased questions.
 
-A plain model cannot guarantee that it uses the chosen UVM release. Fine-tuning needs labelled data and makes attribution harder, while an agent loop adds complexity to a one-step task. I kept retrieval, validation and evaluation in local Python and used `openai/gpt-4o-mini` through OpenRouter only for optional generation.
+A plain model cannot guarantee that it is using the selected UVM release. Fine-tuning would need labelled data and would make attribution harder, while an agent loop would add complexity to a one-step lookup. I kept retrieval, validation and evaluation in local Python and used `openai/gpt-4o-mini` through OpenRouter only for optional answer generation.
 
-The corpus pins 24 Accellera files from UVM 2020.3.1 commit `78c06547a2a0a29b3dc9dcafae62b75b2ff61544` and records checksums and line links [2]. This makes citations reproducible but coverage old and incomplete. The interface labels its version and rejects other releases. Adding 2020.3.2 requires a new corpus and regression run [1].
+The corpus pins 24 Accellera files from UVM 2020.3.1 commit `78c06547a2a0a29b3dc9dcafae62b75b2ff61544` and records checksums, file names and line links [2]. This makes the evidence reproducible, but also fixes the coverage to an older and incomplete source set. Supporting another release requires a separate corpus and regression run [1].
 
-Offline preview has no token cost and keeps the question local. Hosted generation sends the question and public excerpts to a provider, so private RTL and logs are outside scope. The recorded 25-call batch used 54,426 tokens and cost USD 0.00915030. This excludes engineering time, hosting, maintenance and review.
+Offline preview has no token charge and keeps the question local. Hosted generation sends the question and public source excerpts to a provider, so private RTL and logs are outside scope. The fresh 25-call run used 54,692 tokens and cost USD 0.00908730. This small API bill does not include engineering time, hosting, maintenance or expert review.
 
 ## 3. Implementation and evaluation evidence (35%)
 
-The program retrieves five chunks. Offline mode shows the top two as an evidence preview. Hosted mode requests structured claims. A claim is kept only if it cites a retrieved chunk and a quote aligned to one exact source span. UVM identifiers must occur in that chunk, and a qualified method must match its class. These checks verify provenance, not entailment.
+The program retrieves five chunks. Offline mode shows the top two as an evidence preview. Hosted mode requests structured claims. A claim is kept only when it cites a retrieved chunk and its quotation aligns to one exact source span. UVM identifiers must occur in that chunk, and a class-qualified method must match the class scope. These checks verify provenance; they do not prove that the interpretation is complete.
 
-On the 27 September Colab rerun (`20260927T090146780914Z`), all 31 tests passed. BM25 reached 5/6 Hit@1, 6/6 Hit@5 and 0.9167 MRR@5. TF-IDF and hybrid each reached 4/6, 6/6 and 0.8333. Median time was 1.23 ms for BM25, 1.05 ms for TF-IDF and 3.24 ms for hybrid. The set is small, and Hit@5 measures retrieval rather than correctness.
+In the 28 September Colab rerun, all 31 tests passed. The corpus contained 349 chunks from 24 source files. On six answerable development questions, BM25 reached 5/6 Hit@1, 6/6 Hit@5 and 0.9167 MRR@5. TF-IDF and hybrid each reached 4/6, 6/6 and 0.8333. This is a small development set, and Hit@5 measures whether a labelled passage was retrieved rather than whether a generated answer was correct.
 
-I set a target of at least 80% correct-and-usable answers, ten points above the same-model baseline, and 80% appropriate abstention. The frozen 20-case v2 run found a correct passage for 14/14 answerable cases but refused only 4/6 unsupported cases. Later changes reached 6/6, but the exposed set now provides regression evidence rather than a new blind result.
+I set targets of at least 80% correct-and-usable answers, ten percentage points above the same-model baseline, and 80% appropriate abstention. In the frozen 20-case confirmation run, retrieval placed a labelled passage within five results for all 14 answerable cases, but the original boundary logic refused only 4/6 unsupported cases, or 66.7%. Later changes passed all six exposed cases, but those checks are regression evidence because the cases were no longer blind.
 
-The saved 25 September development run contains eight outputs for each of plain LLM, BM25 plus LLM and hybrid plus LLM. The first validator rejected correct quotes when the model removed source-comment prefixes or changed line wrapping. Rechecking the saved responses after a bounded alignment fix accepted 5/6 BM25 and 6/6 hybrid drafts; both rejected 2/2 unsupported questions. No extra API calls were used for that recheck.
+The fresh paid comparison made 24 development calls without an API error. The plain comparator returned an answered status for all eight cases. BM25 plus LLM answered 4/6 supported cases and refused 2/2 unsupported cases. Hybrid plus LLM answered 5/6 and refused 2/2. These are system statuses after format, citation and identifier checks.
 
-An AI-assisted source comparison rated hybrid 5/6 correct and usable against 2/6 for the plain model. The 83.3% versus 33.3% result is development evidence, not independent human review. The remaining hybrid answer became incomplete after the validator removed a wrong class-qualified claim.
+I then compared the outputs with the prepared references and cited UVM excerpts. This AI-assisted check rated 2/6 plain, 3/6 BM25 and 4/6 hybrid answers complete and usable. Hybrid refused one supported event question, and its answer about `start_item` and `finish_item` allowed randomisation but omitted that delay is forbidden between the calls. Because 4/6 is 66.7%, the fresh result did not meet the 80% answer-quality target. This review was not independent human validation.
 
-The 27 September smoke test used 3,543 tokens and cost USD 0.00035025, but the draft failed citation or identifier checks, causing a false abstention. The next 24-call batch completed, but its result folder was not embedded in the downloaded notebook. I therefore report no new accuracy or cost total from it.
+The separate smoke question exposed the same distinction. Its citation passed, but the answer stated only that tracing is off by default and omitted how to enable it. The smoke call used 3,539 tokens and cost USD 0.00059745. Together with the development comparison, the fresh run made 25 calls, used 54,692 tokens and cost USD 0.00908730.
 
 To reproduce the non-paid checks from the repository root:
 
@@ -44,11 +44,11 @@ python -m unittest discover -s tests -v
 
 ## 4. Demonstration, risks and limits (25%)
 
-My demonstration shows a supported question with a commit-linked source, a request lacking private evidence and an instruction-override attempt. It also includes the ranking results, saved paid comparison and rejected smoke question. Strict validation can prevent a wrong claim but also reduce usefulness.
+My demonstration shows a supported question with a commit-linked excerpt, a request lacking private evidence, an instruction-override attempt, the retrieval table and the fresh paid summary. It also shows the incomplete smoke answer. Keeping this failure visible is useful because a valid citation can still support only part of an answer.
 
-The hardest remaining failure is a fluent interpretation attached to real but insufficient evidence. Exact quotes, source hashes and class scopes reduce this risk, but only a domain-aware reviewer can judge meaning and usefulness. Other limits are stale sources, lexical misses, provider disclosure, false refusals and over-reliance. VerifyRAG cannot compile a testbench, inspect an unseen DUT, diagnose a proprietary simulator or approve sign-off. I would require a larger frozen benchmark and a blinded review by verification engineers before a pilot.
+The main remaining risk is a fluent interpretation attached to real but insufficient evidence. Exact quotations, source hashes and class scopes reduce that risk, but a domain-aware reviewer must still judge meaning and usefulness. Other limits are stale sources, lexical misses, provider disclosure, false refusals and over-reliance. VerifyRAG cannot compile a testbench, inspect an unseen DUT, diagnose a proprietary simulator or approve sign-off. Before a pilot, I would use a larger frozen benchmark and blinded review by verification engineers.
 
-I used generative AI during research, coding, test design and editing. I checked the final Colab run myself on 27 September and retained the failed cases. I have not presented the AI-assisted labels as independent human review. The detailed assistance record is included with the project in `docs/AI_USE.md`.
+I used generative AI during research, coding, test design and editing. I checked the final Colab run on 28 September, retained the failed and incomplete cases, and separated automated statuses from correctness claims. The detailed assistance record is included in `docs/AI_USE.md`.
 
 ## References
 

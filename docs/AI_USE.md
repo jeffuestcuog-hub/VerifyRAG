@@ -20,12 +20,16 @@ comment-line formatting, implemented source-aligned quote recovery and class-sco
 four tests, and revalidated the saved responses without further API calls. The current 31 tests
 pass. Codex also prepared a clearly labelled AI-assisted source comparison; it is not human review.
 
-On 27 September 2026, the owner independently opened the submitted notebook in Colab, uploaded
-the public archive, enabled the OpenRouter experiment through Colab Secrets, and downloaded the
-completed notebook for review. The notebook shows 31 passing tests, repeated offline metrics, a
-one-call smoke false abstention costing USD 0.00035025, and completion of the 24-call development
-batch. Its per-case live folder was not embedded, so no new correctness or total-cost claim is
-based on that repetition.
+On 27 September 2026, the owner opened the notebook in Colab and reproduced the workflow. That
+run is retained as historical evidence, including a false smoke-test abstention.
+
+On 28 September 2026, after the owner explicitly authorised new OpenRouter charges, Codex operated
+the open Colab session for a fresh public-notebook check. Both paid switches were enabled for the
+run and reset to `False` afterwards. The OpenRouter secret was read only through Colab Secrets and
+was not printed or stored in a code cell. The run completed 25 paid calls with no API error, used
+54,692 tokens and cost USD 0.00908730. The saved evidence includes the per-case records and a
+notebook copy with outputs. Codex also compared the outputs with the prepared references. That
+AI-assisted check rated 4/6 hybrid answers complete; it is not independent human review.
 
 The owner has reproduced the notebook workflow but has **not yet completed** domain review of every
 answer or obtained peer validation. No independent human correctness score is claimed. The owner
@@ -41,7 +45,7 @@ previews and automated citation checks are not represented as measured LLM corre
 | Date | Work actually performed | Evidence | Decision I can explain |
 |---|---|---|---|
 | Pending | Review scope and source version | Own notes | Why this scope |
-| 27 Sep 2026 | Ran and inspected the Colab notebook | Downloaded notebook with outputs | Tests passed; live smoke falsely abstained |
+| 27-28 Sep 2026 | Ran and inspected the Colab notebook | Downloaded notebooks and preserved run evidence | Tests passed; fresh smoke citation passed but its answer was incomplete |
 | Pending | Review domain labels and answers with a peer | Named review worksheet | Why an answer is correct |
-| Pending | Revise design and final report | Commit/change record | Business/technical choice |
+| 28 Sep 2026 | Revised the final report against the fresh results | Final report and change record | Why automated status and answer completeness differ |
 | Pending | Record personal demonstration | Video URL | Risks and limits |

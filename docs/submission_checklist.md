@@ -3,23 +3,24 @@
 This checklist records the evidence prepared in the repository. It does not claim that the files
 have already been uploaded to NTULearn.
 
-**Current NTULearn deadline shown on 27 September 2026:** 4 October 2026, 11:59 PM (UTC+8).
+**Current NTULearn deadline checked on 28 September 2026:** 4 October 2026, 11:59 PM (UTC+8).
 
 | Deliverable / evidence | Status | Location / action |
 |---|---|---|
 | Individual topic and original problem | Complete | VerifyRAG; original course proposal retained separately |
 | One-page problem statement | Complete | Final PDF in the submission folder |
-| Trade-off analysis, maximum 1,200 words | Complete; about 1,007 words before references | `tradeoff_report.md`, editable DOCX and final PDF |
+| Trade-off analysis, maximum 1,200 words | Complete; about 1,095 words before references | `tradeoff_report.md`, editable DOCX and final PDF |
 | First-person authorship and limitations | Reviewed | `tradeoff_report.md`, `AI_USE.md` |
 | Source corpus, licence and fixed version | Complete | `data/source_manifest.json`, `data/raw/` |
 | Local reproduction | Complete | CLI instructions, Colab notebook and 31 passing tests |
 | Retrieval baseline comparison | Complete on small development and confirmation sets | `results/`, notebook outputs |
 | Frozen confirmation evidence | Preserved | Original v2: 14/14 Hit@5; 4/6 unsupported cases refused |
 | Later guardrail regression | Preserved and labelled as exposed data | 6/6 unsupported cases refused; not treated as a new blind result |
-| Saved hosted-model comparison | Complete for 25 September development run | 25 calls, 54,426 tokens, USD 0.00915030 |
-| Correctness and usability review | Preliminary only | AI-assisted source review: hybrid 5/6, plain 2/6; human review pending |
-| 27 September paid smoke test | Preserved as a failure | False abstention; 3,543 tokens; USD 0.00035025 |
-| 27 September 24-call comparison | Completed in Colab but result folder not retained | No new score or total cost claimed |
+| Fresh hosted-model comparison | Complete for 28 September development run | 24 calls, 51,153 tokens, USD 0.00848985; zero API errors |
+| Fresh paid smoke test | Preserved as an incomplete answer | 1 call, 3,539 tokens, USD 0.00059745; citation passed but enablement step was omitted |
+| Fresh paid-run total | Complete and retained | 25 calls, 54,692 tokens, USD 0.00908730 |
+| Correctness and usability review | Preliminary only | AI-assisted source review: hybrid 4/6, BM25 3/6, plain 2/6; human review pending |
+| Fresh evidence archive | Complete | `evidence/VerifyRAG_paid_run_20260928.zip` and downloaded notebook with outputs |
 | Credential handling | Complete for public package | API key kept in Colab Secrets; package scanned |
 | GitHub repository | Published and publicly accessible | https://github.com/jeffuestcuog-hub/VerifyRAG |
 | Recorded working demo | Script complete; recording pending | `demo_script.md` |
