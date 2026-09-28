@@ -138,6 +138,7 @@ simulator execution are outside scope.
 | `docs/colab_validation_20260925.md` | Colab run, paid usage, post-hoc validation and evidence boundaries |
 | `docs/colab_validation_20260928.md` | Fresh public-Colab rerun, paid usage and completeness limits |
 | `docs/demo_script.md` | Narration and live demonstration outline |
+| `docs/VIDEO_RECORDING_GUIDE_zh.md` | Bilingual narration with matching screen actions |
 | `docs/AI_USE.md` | Authorship and assistance disclosure |
 
 Upstream files retain their Apache-2.0 license. See [third-party notices](THIRD_PARTY_NOTICES.md).
