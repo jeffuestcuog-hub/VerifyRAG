@@ -48,7 +48,7 @@ My demonstration shows a supported question with a commit-linked excerpt, a requ
 
 The main remaining risk is a fluent interpretation attached to real but insufficient evidence. Exact quotations, source hashes and class scopes reduce that risk, but a domain-aware reviewer must still judge meaning and usefulness. Other limits are stale sources, lexical misses, provider disclosure, false refusals and over-reliance. VerifyRAG cannot compile a testbench, inspect an unseen DUT, diagnose a proprietary simulator or approve sign-off. Before a pilot, I would use a larger frozen benchmark and blinded review by verification engineers.
 
-I used generative AI during research, coding, test design and editing. I checked the final Colab run on 28 September, retained the failed and incomplete cases, and separated automated statuses from correctness claims. The detailed assistance record is included in `docs/AI_USE.md`.
+I used generative AI during research, coding, test design and editing. The final Colab run was checked on 28 September, the failed and incomplete cases were retained, and automated statuses were kept separate from correctness claims. The detailed assistance record is included in `docs/AI_USE.md`.
 
 ## References
 

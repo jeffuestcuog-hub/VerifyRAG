@@ -45,7 +45,7 @@ previews and automated citation checks are not represented as measured LLM corre
 | Date | Work actually performed | Evidence | Decision I can explain |
 |---|---|---|---|
 | Pending | Review scope and source version | Own notes | Why this scope |
-| 27-28 Sep 2026 | Ran and inspected the Colab notebook | Downloaded notebooks and preserved run evidence | Tests passed; fresh smoke citation passed but its answer was incomplete |
+| 27-28 Sep 2026 | Authorised and reviewed the Colab runs | Downloaded notebooks and preserved run evidence | Tests passed; fresh smoke citation passed but its answer was incomplete |
 | Pending | Review domain labels and answers with a peer | Named review worksheet | Why an answer is correct |
 | 28 Sep 2026 | Revised the final report against the fresh results | Final report and change record | Why automated status and answer completeness differ |
 | Pending | Record personal demonstration | Video URL | Risks and limits |

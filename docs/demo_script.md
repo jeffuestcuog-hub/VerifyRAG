@@ -12,7 +12,7 @@ The corpus contains 24 files from Accellera UVM 2020.3.1, divided into 349 deter
 
 ## 1:00–1:35 | Fresh public Colab run
 
-I reran the public notebook in Colab on 28 September. All 31 tests passed. They check source integrity, provenance, version boundaries, citation alignment and refusal rules. The run also confirmed 349 chunks from 24 source files. These tests show that the programmed checks work. They do not prove that every generated answer is correct.
+The public notebook was rerun in Colab on 28 September. All 31 tests passed. They check source integrity, provenance, version boundaries, citation alignment and refusal rules. The run also confirmed 349 chunks from 24 source files. These tests show that the programmed checks work. They do not prove that every generated answer is correct.
 
 ## 1:35–2:20 | Offline evidence and refusals
 
@@ -24,7 +24,7 @@ On six answerable development questions, BM25 ranked a labelled passage first in
 
 ## 2:55–3:35 | Fresh paid smoke test
 
-For this requested rerun, I temporarily enabled both paid switches and loaded the OpenRouter key from Colab Secrets. The key was never printed or stored in a code cell. The smoke test made one request with GPT-4o mini. It used 3,539 tokens and cost 0.00059745 US dollars. The validator accepted the answer and its citation, but the answer only said that tracing is off by default. It did not explain how to enable tracing. This is a useful failure case: a valid citation does not guarantee that a two-part question was answered completely.
+For this requested rerun, both paid switches were temporarily enabled and the OpenRouter key was loaded from Colab Secrets. The key was never printed or stored in a code cell. The smoke test made one request with GPT-4o mini. It used 3,539 tokens and cost 0.00059745 US dollars. The validator accepted the answer and its citation, but the answer only said that tracing is off by default. It did not explain how to enable tracing. This is a useful failure case: a valid citation does not guarantee that a two-part question was answered completely.
 
 ## 3:35–4:20 | Fresh paid comparison
 
@@ -44,7 +44,7 @@ The main risk is a fluent answer attached to real but incomplete evidence. Exact
 
 ## 5:25–5:50 | Conclusion and disclosure
 
-In summary, VerifyRAG is an evidence navigator for one pinned UVM release. The public repository includes the code, corpus, tests, unsuccessful cases and evaluation records. I used generative AI during research, coding, test design and editing. I have kept the failed and incomplete results, and I have separated automated checks from human-validated accuracy. Thank you.
+In summary, VerifyRAG is an evidence navigator for one pinned UVM release. The public repository includes the code, corpus, tests, unsuccessful cases and evaluation records. I used generative AI during research, coding, test design and editing. I kept the failed and incomplete results, and I did not present the automated checks as human-validated accuracy. Thank you.
 
 ## Five lines to practise
 
