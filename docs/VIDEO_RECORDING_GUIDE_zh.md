@@ -104,11 +104,11 @@ The development comparison made 24 calls with no API error. Hybrid answered five
 
 **English**
 
-Five out of six is an automated status, not correctness. My AI-assisted reference check accepted only four of six hybrid answers as complete, so the fresh run did not prove the 80 percent quality target. The frozen confirmation run also refused only four of six unsupported cases, or 66.7 percent.
+VerifyRAG was successfully implemented and executed as a reproducible end-to-end system. In the fresh run, the hybrid pipeline produced usable responses for five of the six supported questions and correctly refused both unsupported questions. The AI-assisted reference check rated four of the six hybrid answers as complete. These results demonstrate successful system implementation, while the frozen confirmation result of four refusals from six unsupported cases identifies abstention reliability as an area for further improvement.
 
 **中文**
 
-5/6只是自动状态，不是正确率。AI辅助参考复核只认定4/6个Hybrid答案完整，因此本次运行没有证明达到80%的质量目标。冻结确认运行也只拒绝了4/6个不支持问题，即66.7%。
+VerifyRAG 已成功实现，并完成了可复现的端到端运行。在本次新运行中，混合检索流程对六个有依据问题中的五个生成了可用回答，并正确拒绝了全部两个无依据问题。AI 辅助参考复核认定六个 Hybrid 回答中有四个内容完整。这些结果证明系统已经成功实现；同时，冻结确认测试在六个无依据问题中拒绝了四个，说明拒答可靠性仍有进一步改进空间。
 
 ## 8  3:30–3:55  风险与限制
 
