@@ -11,8 +11,28 @@ A fresh public-Colab check completed on 28 September 2026. The current code pass
 fresh run made 25 paid calls without an API error, and hybrid RAG answered 5/6 supported development
 questions while refusing 2/2 unsupported questions. A stricter AI-assisted review found 4/6 hybrid
 answers complete, so the run does **not** establish the 80% answer-quality target. Independent
-domain review, final recording and submission remain to be completed.
+third-party domain review remains pending. A 5:11 screen-recorded demonstration is public, but the
+camera-visible replacement requested in the final course clarification still needs to be recorded.
 See [Chinese starting guide](docs/START_HERE_zh.md) and [evidence status](docs/submission_checklist.md).
+
+## Product definition
+
+| Item | Definition |
+|---|---|
+| **Persona** | A digital-verification engineer checking the behaviour, scope or version of a UVM API while writing or debugging a testbench. |
+| **Input** | A natural-language UVM/SystemVerilog question and the supported source version (`2020.3.1`). Private RTL, logs and simulator state are outside scope. |
+| **Output** | Either an offline evidence preview, an optional model-generated answer with source-aligned claims, or an explicit abstention. Every accepted claim retains a chunk ID, file, line range and commit-linked URL. |
+| **External intelligence** | Optional `openai/gpt-4o-mini` generation through OpenRouter. Retrieval, validation and evaluation remain local Python code. |
+
+### Targeted and reached metrics
+
+| Measure | Target | Reached | Interpretation |
+|---|---:|---:|---|
+| Human-reviewed correct-and-usable answers | >=80% and >=10 percentage points above the same-model plain baseline | Not independently measured; AI-assisted development comparison: hybrid 4/6 (66.7%), plain 2/6 (33.3%) | Quality target remains unproven. |
+| Appropriate-abstention recall | >=80% | Frozen confirmation: 4/6 (66.7%) | Target missed. The later 6/6 result used exposed cases and is regression evidence only. |
+| Retrieval Hit@5 | Diagnostic, no correctness target | Development BM25 6/6; frozen confirmation 14/14 | Shows evidence retrieval, not answer correctness. |
+| Reproducibility checks | All automated checks pass | 31/31 tests; 24 source files; 349 chunks | Confirms programmed contracts and corpus integrity. |
+| Hosted-run cost and reliability | Record every call, error, token and returned cost | 25 calls; 0 API errors; 54,692 tokens; USD 0.00908730 | Measured development-run cost, excluding engineering and review effort. |
 
 ## Run in one minute
 
@@ -129,12 +149,15 @@ simulator execution are outside scope.
 | Folder/file | Purpose |
 |---|---|
 | `verifyrag/` | Retrieval, model client, deterministic checks and CLI |
+| `data/README.md` | Data provenance, schemas, rebuild steps and limitations |
 | `data/raw/`, `source_manifest.json`, `corpus.jsonl` | Original public source and reproducible index inputs |
 | `data/eval/` | Development, exposed exploratory, and once-run frozen confirmation questions |
+| `evidence/paid_run_20260928/` | Sanitised raw records from the fresh paid run; no credential is included |
 | `scripts/` | Fetch, chunk, evaluate and calculate scenario costs |
 | `results/` | Genuine run records and blank review sheets |
 | `tests/` | Source integrity and guardrail contract tests |
-| `docs/tradeoff_report.md` | English report draft; max 1,200 words |
+| `docs/tradeoff_report.md` | English report source; about 1,178 words before references |
+| `output/VerifyRAG_Tradeoff_Report_Final.docx` | Editable final report matching the submitted PDF content |
 | `docs/colab_validation_20260925.md` | Colab run, paid usage, post-hoc validation and evidence boundaries |
 | `docs/colab_validation_20260928.md` | Fresh public-Colab rerun, paid usage and completeness limits |
 | `docs/demo_script.md` | Narration and live demonstration outline |

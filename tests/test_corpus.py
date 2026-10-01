@@ -1,3 +1,5 @@
+"""Validate corpus provenance, chunk integrity and source-version contracts."""
+
 import hashlib
 import json
 from pathlib import Path

@@ -1,0 +1,29 @@
+{
+  "created_utc": "20260928T135949806107Z",
+  "split": "development",
+  "live": true,
+  "model": "openai/gpt-4o-mini",
+  "dataset_sha256": "45ea3a4a02f81bfb469acc63301cee8d9f6f8286454febfa9eb9f1174f98eaef",
+  "corpus_sha256": "e0c7879befa7f4cc73aa6d79020a1f190635325c542b919937d05829f0fa0c8f",
+  "methods": [
+    "bm25",
+    "tfidf",
+    "hybrid"
+  ],
+  "k": 5,
+  "selected_answer_retriever": "bm25",
+  "selection_basis": "Development-set Hit@1 and MRR@5; all three methods retained for comparison.",
+  "latency_scope": "Retrieval only; index construction, model generation and network excluded.",
+  "percentiles": "p50 is the sample median; p95 uses nearest rank.",
+  "human_correctness": "NOT MEASURED",
+  "independent_domain_validation": "PENDING",
+  "code_sha256": {
+    "verifyrag/__init__.py": "3943eb5146bea254224f20470534041038e28ef58a907582d17481392584b964",
+    "verifyrag/__main__.py": "3f7bf8d0a12a9ccb468ed91b3434a711c387ff16423907f8be583cfff12a19d0",
+    "verifyrag/answering.py": "aec1cf224f9286eaea86e034d57f6416dc54bda461f36c97267f78407242fa89",
+    "verifyrag/retrieval.py": "3196a8d43a6c67d21188c23c74f6f2ac5e26c9225891dcb8258c270cd17484d6",
+    "scripts/evaluate.py": "446413d1ae3ba47962f8252e86ba68c31380e36f04a4f4cb3bfa794f2e306e43",
+    "scripts/build_corpus.py": "e756783ea75e5e92accb0e2ba939874bbc60ec83db3a1602f979a68739e9f6f4",
+    "scripts/cost_model.py": "8c72c0dfcaf225e4adb05b20b185ed9a58865052f8692b0cae25e034771cdf2a"
+  }
+}
