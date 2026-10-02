@@ -11,8 +11,8 @@ A fresh public-Colab check completed on 28 September 2026. The current code pass
 fresh run made 25 paid calls without an API error, and hybrid RAG answered 5/6 supported development
 questions while refusing 2/2 unsupported questions. A stricter AI-assisted review found 4/6 hybrid
 answers complete, so the run does **not** establish the 80% answer-quality target. Independent
-third-party domain review remains pending. A 5:11 screen-recorded demonstration is public, but the
-camera-visible replacement requested in the final course clarification still needs to be recorded.
+third-party domain review remains pending. A 5:27 camera-visible demonstration is publicly available
+at [YouTube](https://youtu.be/E3NnNRjjKGk), with the presenter and computer screen visible together.
 See [Chinese starting guide](docs/START_HERE_zh.md) and [evidence status](docs/submission_checklist.md).
 
 ## Product definition

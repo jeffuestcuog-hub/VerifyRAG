@@ -23,17 +23,16 @@ have already been uploaded to NTULearn.
 | Fresh evidence archive | Complete | `evidence/paid_run_20260928/` and the notebook with outputs |
 | Credential handling | Complete for public package | API key kept in Colab Secrets; package scanned |
 | GitHub repository | Published and publicly accessible | https://github.com/jeffuestcuog-hub/VerifyRAG |
-| Recorded working demo | Screen recording complete; compliant replacement pending | Public 5:11 recording exists, but the final clarification requires the presenter's face and screen to be visible together |
-| Repository and video links | Complete for current materials | Public GitHub, Colab and YouTube URLs are recorded; replace the YouTube URL after the camera-visible recording is published |
+| Recorded working demo | Complete | Public 5:27 recording shows the presenter's face and computer screen together: https://youtu.be/E3NnNRjjKGk |
+| Repository and video links | Complete | Public GitHub, Colab and current YouTube URLs are recorded |
 | NTULearn submission | Pending | Read current View instructions, upload, reopen files, save receipt |
 
 ## Final checks before submission
 
 1. Read the current NTULearn **View instructions** page and follow its exact file/link format.
-2. Record the camera-visible replacement using the saved evidence; do not rerun the paid cells for the video.
-3. Test the video link in a private/incognito window.
-4. Read the final report personally and confirm that every first-person statement is accurate.
-5. Upload before 4 October 2026, 11:59 PM (UTC+8), reopen each submitted item, and save the receipt.
+2. Test the current camera-visible video link in a private/incognito window.
+3. Read the final report personally and confirm that every first-person statement is accurate.
+4. Upload before 4 October 2026, 11:59 PM (UTC+8), reopen each submitted item, and save the receipt.
 
 ## Evidence limits
 
